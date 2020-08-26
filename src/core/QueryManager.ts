@@ -599,7 +599,7 @@ export class QueryManager<TStore> {
         query,
         context,
         variables,
-        false,
+        context.queryDeduplication === true ?? false,
       ).map(result => {
         if (!fetchPolicy || fetchPolicy !== 'no-cache') {
           // the subscription interface should handle not sending us results we no longer subscribe to.
